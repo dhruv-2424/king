@@ -3,22 +3,21 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
+from selenium.common.exceptions import WebDriverException, TimeoutException
+import subprocess
 import time
 
 print("Script started")
 
-# Configure WebDriver options
-options = webdriver.ChromeOptions()
+options =  webdriver.ChromeOptions()
 options.binary_location = "/usr/bin/chromium-browser"  # Path to the Chromium binary
 options.add_argument("--headless")  # Run in headless mode (optional)
 options.add_argument("--no-sandbox")  # Disable sandboxing
 options.add_argument("--disable-dev-shm-usage")  # Disable /dev/shm usage
 
-# Initialize WebDriver
-driver = webdriver.Chrome(options=options)
 
-print("Script started")
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+driver = webdriver.Chrome(options=options)
 
 try:
     # Open the webpage
