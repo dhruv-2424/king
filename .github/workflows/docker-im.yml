@@ -8,14 +8,16 @@ on:
 
 jobs:
 
-  build:
+  build-and-run:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@3
+      
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-app:$(date +%s)
-
+      run: docker build -t my-app .
+      
     - name: Run the Docker container
       run: docker run --rm my-app python3 newtest.py
