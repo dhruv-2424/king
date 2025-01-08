@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException, TimeoutException
 import subprocess
 import time
+impport random
 
 print("Script started")
 
